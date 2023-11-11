@@ -1,12 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../index.css";
 import Navbar from "../Components/Navbar";
 import "./Skills.css";
 import Skill from "../Components/Skill";
 import SkillAnalysis from "../Components/SkillAnalysis";
+import { useParams } from "react-router-dom";
+import { supabase } from "../utils/supabaseConfig";
 
 const Skills = () => {
+  const { userId } = useParams();
+  console.log(userId);
   const navLinks = [
     { text: "Home", link: "home" },
     { text: "Statistics", link: "statistics" },
