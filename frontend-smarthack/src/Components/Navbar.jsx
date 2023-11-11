@@ -2,9 +2,14 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="navbar-wrapper">
-        div.navbar-content-wrapper
-    </div>
+    <section className='navbar'>
+        <div className="navbar-wrapper">
+            <div className="navbar-content-wrapper">
+                <div className="navbar-logo-wrapepr"></div>
+                <div className="navbar-links-wrapper"></div>
+            </div>
+        </div>
+    </section>
   )
 }
 
