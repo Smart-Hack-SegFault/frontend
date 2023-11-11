@@ -1,20 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Components/Button";
 import Navbar from "../Components/Navbar";
+import RoundChart from "../Components/RoundChart";
+import { useParams } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
+import Wrapper from "../assets/wrappers/Home";
 
-const Home = ({ userName }) => {
+const Home = () => {
+  const { userId } = useParams();
+  const { getCurrentUser, getSkills, user } = useAppContext();
+
+  useEffect(() => {
+    getCurrentUser(userId);
+    getSkills(userId);
+  }, []);
+
   const navLinks = [
-    { text: "Home", link: "home" },
+    { text: "Home", link: "" },
     { text: "Statistics", link: "statistics" },
-    { text: "Skills", link: "slills" },
+    { text: "Tasks", link: "tasks" },
     { text: "Profile", link: "profile" },
   ];
 
   return (
-    <>
-      <Navbar links={navLinks} />
-      <section className="section"></section>
-    </>
+    <Wrapper>
+      <section className="home page">
+        <Navbar links={navLinks} />
+
+        <section className="home-left">
+          <h1>
+            Great to see you again, <br></br> {user.name}
+          </h1>
+        </section>
+        <section className="home-right">
+          <RoundChart />
+        </section>
+      </section>
+    </Wrapper>
   );
 };
 

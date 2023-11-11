@@ -24,14 +24,14 @@
   --skill-content-max-height: 600px;
 }
 
-html, body {
+html,
+body {
   font-family: var(--font);
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
   /* overflow: hidden; */
 }
-
 
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
