@@ -33,6 +33,10 @@ body {
   /* overflow: hidden; */
 }
 
+.page {
+  margin-top: var(--navbar-height);
+}
+
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
   margin-top: var(--navbar-height);
