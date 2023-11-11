@@ -1,4 +1,5 @@
 import Landing from './pages/Landing.jsx'
+import Register from './pages/Register.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/landing' element={<Landing />}></Route>
+        <Route path='/register' element={<Register />}></Route>
       </Routes>
     </BrowserRouter>
   )

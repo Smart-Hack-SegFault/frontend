@@ -1,0 +1,68 @@
+.button {
+  display: inline-block;
+  align-self: start;
+  margin: 0.3rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  padding: 0.4rem 0.6rem 0.4rem 0.9rem;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 200ms;
+  font-family: var(--font);
+}
+
+.button__violet {
+  background-color: var(--violet);
+  color: var(--white);
+}
+
+.button__green {
+  background-color: var(--green2);
+  color: var(--white);
+}
+
+.button:hover {
+  opacity: 60%;
+}
+
+.button__violet:hover,
+.button__green:hover {
+  background-color: var(--black);
+  opacity: 100%;
+}
+
+.button:hover .arrow-tip {
+  transform: translateX(0);
+}
+
+.button:hover .arrow-body {
+  opacity: 100%;
+}
+
+.arrow-violet,
+.arrow-green {
+  fill: var(--white);
+}
+
+.arrow-svg {
+  height: 10px;
+  width: 13px;
+  vertical-align: middle;
+}
+
+.button-text {
+  margin-right: 0.5em;
+}
+
+.arrow-body {
+  opacity: 0%;
+}
+
+.arrow-tip {
+  transform: translateX(-30%);
+}
+
+.arrow-body,
+.arrow-tip {
+  transition: all 150ms ease;
+}
