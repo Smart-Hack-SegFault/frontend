@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import Home from "./pages/Home"
+import { useState } from "react";
+import Home from "./pages/Home";
+import Skills from "./pages/Skills";
 
 function App() {
-  return <Home userName={"Tiberiu"}/>
+  return <Skills />;
 }
 
-export default App
+export default App;
