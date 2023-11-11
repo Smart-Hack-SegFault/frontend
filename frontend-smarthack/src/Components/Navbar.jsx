@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React from "react";
 import "./Navbar.css";
+=======
+import React from 'react'
+import './Navbar.css'
+>>>>>>> e448ebd (statistics page structure, charts, global context added)
 
 /**
  *  Renders Navbar
@@ -13,6 +18,7 @@ import "./Navbar.css";
 
 const Navbar = ({ links }) => {
   return (
+<<<<<<< HEAD
     <section className="navbar">
       <div className="navbar-wrapper">
         <div className="navbar-content-wrapper">
@@ -26,6 +32,21 @@ const Navbar = ({ links }) => {
                   </a>
                 </div>
               );
+=======
+    <section className='navbar'>
+      <div className='navbar-wrapper'>
+        <div className='navbar-content-wrapper'>
+          <div className='navbar-logo-wrapper'></div>
+          <div className='navbar-links-wrapper'>
+            {links.map((link, index) => {
+              return (
+                <div className='navbar-link-wrapper' key={index}>
+                  <a href={link.link} className='navbar-link'>
+                    {link.text}
+                  </a>
+                </div>
+              )
+>>>>>>> e448ebd (statistics page structure, charts, global context added)
             })}
           </div>
         </div>
@@ -34,4 +55,8 @@ const Navbar = ({ links }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Navbar;
+=======
+export default Navbar
+>>>>>>> e448ebd (statistics page structure, charts, global context added)

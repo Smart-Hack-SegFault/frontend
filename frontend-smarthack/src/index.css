@@ -23,7 +23,8 @@
   --skill-content-max-height: 600px;
 }
 
-html, body {
+html,
+body {
   font-family: var(--font);
   margin: 0;
   padding: 0;
@@ -31,6 +32,7 @@ html, body {
   /* overflow: hidden; */
 }
 
+<<<<<<< HEAD
 
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
@@ -39,3 +41,14 @@ html, body {
   justify-content: center;
   padding: 3rem;
 }
+=======
+body {
+}
+
+.page {
+  margin-top: var(--navbar-height);
+}
+
+.section {
+}
+>>>>>>> e448ebd (statistics page structure, charts, global context added)
