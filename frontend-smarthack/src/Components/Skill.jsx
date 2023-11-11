@@ -10,7 +10,7 @@ const Skill = ({ skillName, setSelectedSkill }) => {
     <div className="skill-wrapper">
       <Button
         text={skillName}
-        style={"green1 fill-container"}
+        style={"grey fill-container"}
         handleSubmit={() => setSelectedSkill(skillName)}
       />
     </div>

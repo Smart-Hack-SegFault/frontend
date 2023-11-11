@@ -22,7 +22,7 @@
   color: var(--black);
 }
 
-.button__green1:hover {
+.button__green1:hover, .button__grey:hover {
   background-color: var(--black);
   color: var(--white);
 }
@@ -34,6 +34,15 @@
 .button__green2 {
   background-color: var(--green2);
   color: var(--white);
+}
+
+.button__grey {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.arrow-grey {
+  fill: var(--white);
 }
 
 .arrow-green1 {
