@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Wrapper from '../assets/wrappers/Landing'
+import Button from '../Components/Button'
 
 const Landing = () => {
   return (
     <Wrapper>
-      <img src='' alt='logo' className='logo'></img>
+      {/* <img src='' alt='logo' className='logo'></img> */}
       <section className='landing-content'>
         <h1>SkillSync</h1>
         <section className='btn-container'>
           <Link to='/register'>
-            <button className='btn btn-block register-btn'>
-              Login / Register
-            </button>
+            <Button text='Login/Register' style='violet'></Button>
           </Link>
         </section>
       </section>
