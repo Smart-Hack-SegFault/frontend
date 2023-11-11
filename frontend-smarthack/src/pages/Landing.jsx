@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Wrapper from '../assets/wrappers/Landing'
 
 const Landing = () => {
   return (
     <Wrapper>
-      <img src='' alt='logo' className='logo'></img>
+      {/* <img src='' alt='logo' className='logo'></img> */}
       <section className='landing-content'>
         <h1>SkillSync</h1>
         <section className='btn-container'>

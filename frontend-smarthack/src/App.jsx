@@ -1,8 +1,14 @@
-import { useState } from 'react'
+import Landing from './pages/Landing.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
-  return
-  ;<></>
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/landing' element={<Landing />}></Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App
