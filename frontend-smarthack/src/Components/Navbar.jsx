@@ -1,6 +1,16 @@
 import React from 'react'
 import "./Navbar.css";
 
+/**
+ *  Renders Navbar
+ * 
+ * @param links: A list of object containing a link and a text. Ex:
+ *              links = [
+ *                  {link: "home", text: "Home"}
+ *              ]
+ * 
+ */
+
 const Navbar = ( { links } ) => {
   
   return (
