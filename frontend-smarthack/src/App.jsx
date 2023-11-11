@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Statistics from "./pages/Statistics.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context/appContext.jsx";
+import Skills from "./pages/Skills.jsx";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/landing" element={<Landing />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/skills" element={<Skills />}></Route>
           <Route path="/:userId" element={<Home />}></Route>
           <Route path="/statistics/:userId" element={<Statistics />}></Route>
           <Route

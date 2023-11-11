@@ -102,3 +102,15 @@
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+.allign-center {
+  align-self: center;
+}
+
+.fill-width {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}

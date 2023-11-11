@@ -44,11 +44,19 @@ const Skills = () => {
             <div className="skills-category-wrapper">
               <h1 className="skills-category-title">Hard Skills</h1>
               <div className="skills-scroll-box">
+                <Skill
+                  skillName={"Add new skill"}
+                  style={"violet"}
+                  type={"hard"}
+                  setSelectedSkill={setSelectedSkill}
+                />
                 {hardSkills.map((skill, index) => {
                   return (
                     <Skill
                       key={index}
                       skillName={skill}
+                      style={"grey"}
+                      type={"hard"}
                       setSelectedSkill={setSelectedSkill}
                     />
                   );
@@ -61,11 +69,19 @@ const Skills = () => {
             <div className="skills-category-wrapper">
               <h1 className="skills-category-title">Soft Skills</h1>
               <div className="skills-scroll-box">
+                <Skill
+                  skillName={"Add new skill"}
+                  style={"violet"}
+                  type={"soft"}
+                  setSelectedSkill={setSelectedSkill}
+                />
                 {softSkills.map((skill, index) => {
                   return (
                     <Skill
                       key={index}
                       skillName={skill}
+                      style={"grey"}
+                      type={"soft"}
                       setSelectedSkill={setSelectedSkill}
                     />
                   );
