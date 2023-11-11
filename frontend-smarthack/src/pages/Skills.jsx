@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import "../index.css";
 import Navbar from "../Components/Navbar";
 import "./Skills.css";
 import Skill from "../Components/Skill";
+import SkillAnalysis from "../Components/SkillAnalysis";
 
 const Skills = () => {
   const navLinks = [
@@ -29,6 +31,8 @@ const Skills = () => {
     "Vrajeala6",
     "Vrajeala7",
   ];
+
+  const [selectedSkill, setSelectedSkill] = useState(false);
   return (
     <>
       <Navbar links={navLinks} />
@@ -41,7 +45,13 @@ const Skills = () => {
               <h1 className="skills-category-title">Hard Skills</h1>
               <div className="skills-scroll-box">
                 {hardSkills.map((skill, index) => {
-                  return <Skill key={index} skillName={skill} />;
+                  return (
+                    <Skill
+                      key={index}
+                      skillName={skill}
+                      setSelectedSkill={setSelectedSkill}
+                    />
+                  );
                 })}
               </div>
             </div>
@@ -52,10 +62,27 @@ const Skills = () => {
               <h1 className="skills-category-title">Soft Skills</h1>
               <div className="skills-scroll-box">
                 {softSkills.map((skill, index) => {
-                  return <Skill key={index} skillName={skill} />;
+                  return (
+                    <Skill
+                      key={index}
+                      skillName={skill}
+                      setSelectedSkill={setSelectedSkill}
+                    />
+                  );
                 })}
               </div>
             </div>
+          </div>
+          <div className="skills-right-wrapper">
+            {selectedSkill ? (
+              <SkillAnalysis
+                skill={selectedSkill}
+                streak={"4"}
+                hours={"100"}
+                category={"Programming"}
+                level={"4"}
+              />
+            ) : null}
           </div>
         </div>
       </section>

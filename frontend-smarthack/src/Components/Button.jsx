@@ -5,7 +5,7 @@ import "../index.css";
  *  Generates a button
  *  @param text: Displayed text on the button
  *  @param link: What the button links to
- *  @param style: Style of button. Use: "violet" or "green"
+ *  @param style: Style of button. Use: "violet" or "green1" or "green2"
  *  @param target: Target for link. Use _blank to open in new page
  *
  */
