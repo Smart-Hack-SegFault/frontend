@@ -14,12 +14,13 @@
   --green1: #a0d4a6;
   --green2: #709874;
 
-  --black: #000;
+  --black: #1c211f;
   --white: #fff;
 
   --font: sans-serif;
 
   --navbar-height: 80px;
+  --skill-content-max-height: 600px;
 }
 
 html,
@@ -27,9 +28,8 @@ body {
   font-family: var(--font);
   margin: 0;
   padding: 0;
-}
-
-body {
+  min-height: calc(100vh - var(--navbar-height));
+  /* overflow: hidden; */
 }
 
 .page {
@@ -37,4 +37,9 @@ body {
 }
 
 .section {
+  /* min-height: calc(100vh - var(--navbar-height)); */
+  margin-top: var(--navbar-height);
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
 }
