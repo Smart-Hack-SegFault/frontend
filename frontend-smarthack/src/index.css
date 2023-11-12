@@ -35,9 +35,6 @@ body {
   /* overflow: hidden; */
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 button {
   font-family: 'Roboto', sans-serif;
 }
@@ -45,7 +42,6 @@ button {
 .page {
   margin-top: var(--navbar-height);
 }
->>>>>>> 555b5af (Best my father if i dont hate react)
 
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
@@ -54,7 +50,6 @@ button {
   justify-content: center;
   padding: 3rem;
 }
-=======
 body {
 }
 
@@ -64,4 +59,3 @@ body {
 
 .section {
 }
->>>>>>> e448ebd (statistics page structure, charts, global context added)

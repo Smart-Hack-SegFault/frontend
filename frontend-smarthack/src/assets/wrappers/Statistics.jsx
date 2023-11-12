@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-<<<<<<< HEAD
-const Wrapper = styled.div``
-=======
 const Wrapper = styled.div`
   padding: 8%;
   display: grid;
@@ -50,6 +47,5 @@ const Wrapper = styled.div`
     margin-left: 50%;
   }
 `
->>>>>>> 555b5af (Best my father if i dont hate react)
 
 export default Wrapper

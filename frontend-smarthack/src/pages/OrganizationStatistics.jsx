@@ -43,7 +43,6 @@ const OrganizationStatistics = () => {
     fetchEmployees()
     fetchRoles()
   }, [])
-  }, [])
 
   if (!roles) return
   if (!roles) return
@@ -72,27 +71,15 @@ const OrganizationStatistics = () => {
               }
             }
             setSelectedRole({ name: e.target.value, id: x, organization: org })
-            console.log(e.target.value, selectedRole)
-          }}
-          onChange={(e) => {
-            let x, org
-            for (const { name, id, organization } of roles) {
-              if (name === e.target.value) {
-                x = id
-                org = organization
-              }
-            }
-            setSelectedRole({ name: e.target.value, id: x, organization: org })
           }}
         >
-          {roles.map((role) => (
-            <option key={role.id} value={role.name}>
-              {role.name}
-            </option>
-            <option key={role.id} value={role.name}>
-              {role.name}
-            </option>
-          ))}
+          {roles.map((role) => {
+            return (
+              <option key={role.id} value={role.name}>
+                {role.name}
+              </option>
+            )
+          })}
         </select>
 
         {selectedRole && (
