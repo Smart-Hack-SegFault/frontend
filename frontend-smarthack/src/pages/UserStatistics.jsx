@@ -22,6 +22,7 @@ const value = [
   { date: '2016/05/02', count: 5 },
   { date: '2016/05/04', count: 11 },
 ]
+import { supabase } from '../utils/supabaseConfig'
 
 const Statistics = () => {
   const [value, setValue] = useState([])
@@ -79,16 +80,32 @@ const Statistics = () => {
       <Navbar links={navLinks} />
       <SkillsBarChart typeName='hard skills' typeValue='1' />
       <SkillsBarChart typeName='soft skills' typeValue='0' />
+=======
+  return (
+    <Wrapper className='page'>
+      <Navbar links={navLinks} />
+      <div className='charts-1'>
+        <SkillsBarChart typeName='hard skills' typeValue='1' />
+      </div>
+      <div className='charts-2'>
+        <SkillsBarChart typeName='soft skills' typeValue='0' />
+      </div>
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
       <div className='heat-map'>
         <HeatMap
           value={value}
           weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
+<<<<<<< HEAD
           startDate={new Date('2016/01/01')}
+=======
+          startDate={new Date('2023/01/01')}
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
           panelColors={{
             0: '#b6fdd9cc',
             1: '#e77903',
           }}
           width={800}
+<<<<<<< HEAD
           style={{ color: '#ad001d', '--rhm-rect-active': 'red' }}
         />
       </div>

@@ -34,7 +34,6 @@ const OrganizationStatistics = () => {
           .eq('organization', organizationId)
         setRoles(Roles)
         setSelectedRole(Roles[0])
-        setSelectedRole(Roles[0])
       } catch (error) {
         console.log(error)
       }
@@ -45,13 +44,11 @@ const OrganizationStatistics = () => {
   }, [])
 
   if (!roles) return
-  if (!roles) return
 
   const navLinks = [
     { text: 'Home', link: '/organization' },
     { text: 'Statistics', link: `/organization/statistics/${organizationId}` },
   ]
-  console.log(selectedRole.id)
   console.log(selectedRole.id)
   return (
     <Wrapper className='page'>
@@ -90,7 +87,6 @@ const OrganizationStatistics = () => {
             </div>
 
             <div className='roles-chart'>
-              <RolesChart roleId={selectedRole.id}></RolesChart>
               <RolesChart roleId={selectedRole.id}></RolesChart>
             </div>
           </section>

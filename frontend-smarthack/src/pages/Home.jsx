@@ -26,7 +26,7 @@ const Home = () => {
     <Wrapper>
       <section className='home page'>
         <Navbar links={navLinks} />
-
+        ======= >>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
         <section className='home-left'>
           <h1>
             Great to see you again, <br></br>

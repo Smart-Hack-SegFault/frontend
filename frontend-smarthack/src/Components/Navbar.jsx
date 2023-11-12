@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import React from "react";
+import "./Navbar.css";
+=======
 import React from 'react'
 import './Navbar.css'
 
