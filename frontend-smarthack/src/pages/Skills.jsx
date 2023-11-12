@@ -11,7 +11,7 @@ import { useAppContext } from "../context/appContext";
 const Skills = () => {
   const { userId } = useParams();
   const navLinks = [
-    { text: "Home", link: "/home" },
+    { text: "Home", link: `/home/${userId}` },
     { text: "Statistics", link: `/statistics/${userId}` },
     { text: "Skills", link: `/skills/${userId}` },
     { text: "Profile", link: `/profile/${userId}` },
@@ -35,6 +35,8 @@ const Skills = () => {
         category: skill.Tags.Categories.category,
         tag: skill.tag,
         score: skill.points,
+        id: skill.id,
+        type: skill.Tags.Categories.type,
       });
     } else {
       softSkills.push({
@@ -42,6 +44,8 @@ const Skills = () => {
         category: skill.Tags.Categories.category,
         tag: skill.tag,
         score: skill.points,
+        id: skill.id,
+        type: skill.Tags.Categories.type,
       });
     }
   }
@@ -59,9 +63,8 @@ const Skills = () => {
               <h1 className="skills-category-title">Hard Skills</h1>
               <div className="skills-scroll-box">
                 <Skill
-                  skill={{ name: "Add new skill" }}
+                  skill={{ name: "Add new skill", type: 1 }}
                   style={"violet"}
-                  type={"hard"}
                   setSelectedSkill={setSelectedSkill}
                 />
                 {hardSkills.map((skill, index) => {
@@ -69,8 +72,7 @@ const Skills = () => {
                     <Skill
                       key={index}
                       skill={skill}
-                      style={"grey"}
-                      type={"hard"}
+                      style={"green1"}
                       setSelectedSkill={setSelectedSkill}
                     />
                   );
@@ -84,9 +86,8 @@ const Skills = () => {
               <h1 className="skills-category-title">Soft Skills</h1>
               <div className="skills-scroll-box">
                 <Skill
-                  skill={{ name: "Add new skill" }}
+                  skill={{ name: "Add new skill", type: 0 }}
                   style={"violet"}
-                  type={"soft"}
                   setSelectedSkill={setSelectedSkill}
                 />
                 {softSkills.map((skill, index) => {
@@ -94,8 +95,7 @@ const Skills = () => {
                     <Skill
                       key={index}
                       skill={skill}
-                      style={"grey"}
-                      type={"soft"}
+                      style={"green1"}
                       setSelectedSkill={setSelectedSkill}
                     />
                   );
@@ -105,7 +105,11 @@ const Skills = () => {
           </div>
           <div className="skills-right-wrapper">
             {selectedSkill ? (
-              <SkillAnalysis skill={selectedSkill} userId={userId} />
+              <SkillAnalysis
+                skill={selectedSkill}
+                userId={userId}
+                type={selectedSkill.type}
+              />
             ) : null}
           </div>
         </div>

@@ -30,7 +30,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .page {
