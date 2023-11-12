@@ -6,37 +6,47 @@ import "./Skills.css";
 import Skill from "../Components/Skill";
 import SkillAnalysis from "../Components/SkillAnalysis";
 import { useParams } from "react-router-dom";
-import { supabase } from "../utils/supabaseConfig";
+import { useAppContext } from "../context/appContext";
 
 const Skills = () => {
   const { userId } = useParams();
-  console.log(userId);
   const navLinks = [
-    { text: "Home", link: "home" },
-    { text: "Statistics", link: "statistics" },
-    { text: "Skills", link: "slills" },
-    { text: "Profile", link: "profile" },
+    { text: "Home", link: "/home" },
+    { text: "Statistics", link: `/statistics/${userId}` },
+    { text: "Skills", link: `/skills/${userId}` },
+    { text: "Profile", link: `/profile/${userId}` },
   ];
-  const hardSkills = [
-    "Java",
-    "Python",
-    "C++",
-    "C",
-    "JavaScript",
-    "Brainfuck",
-    "Assembly x86",
-  ];
-  const softSkills = [
-    "Vrajeala1",
-    "Vrajeala2",
-    "Vrajeala3",
-    "Vrajeala4",
-    "Vrajeala5",
-    "Vrajeala6",
-    "Vrajeala7",
-  ];
+  const softSkills = [],
+    hardSkills = [];
 
+  const { getSkills, skills } = useAppContext();
+  const [streak, setStreak] = useState(false);
+  useEffect(() => {
+    getSkills(userId);
+    const fetchStreak = async (userId) => {
+      const streak = await fetch(`http://127.0.0.1:8000/user/${userId}/skill/`);
+    };
+  }, []);
+  if (!skills) return;
+  for (const skill of skills) {
+    if (skill.Tags.Categories.type === 1) {
+      hardSkills.push({
+        name: skill.Tags.name,
+        category: skill.Tags.Categories.category,
+        tag: skill.tag,
+        score: skill.points,
+      });
+    } else {
+      softSkills.push({
+        name: skill.Tags.name,
+        category: skill.Tags.Categories.category,
+        tag: skill.tag,
+        score: skill.points,
+      });
+    }
+  }
   const [selectedSkill, setSelectedSkill] = useState(false);
+  console.log(skills);
   return (
     <>
       <Navbar links={navLinks} />
@@ -49,7 +59,7 @@ const Skills = () => {
               <h1 className="skills-category-title">Hard Skills</h1>
               <div className="skills-scroll-box">
                 <Skill
-                  skillName={"Add new skill"}
+                  skill={{ name: "Add new skill" }}
                   style={"violet"}
                   type={"hard"}
                   setSelectedSkill={setSelectedSkill}
@@ -58,7 +68,7 @@ const Skills = () => {
                   return (
                     <Skill
                       key={index}
-                      skillName={skill}
+                      skill={skill}
                       style={"grey"}
                       type={"hard"}
                       setSelectedSkill={setSelectedSkill}
@@ -74,7 +84,7 @@ const Skills = () => {
               <h1 className="skills-category-title">Soft Skills</h1>
               <div className="skills-scroll-box">
                 <Skill
-                  skillName={"Add new skill"}
+                  skill={{ name: "Add new skill" }}
                   style={"violet"}
                   type={"soft"}
                   setSelectedSkill={setSelectedSkill}
@@ -83,7 +93,7 @@ const Skills = () => {
                   return (
                     <Skill
                       key={index}
-                      skillName={skill}
+                      skill={skill}
                       style={"grey"}
                       type={"soft"}
                       setSelectedSkill={setSelectedSkill}
@@ -95,13 +105,7 @@ const Skills = () => {
           </div>
           <div className="skills-right-wrapper">
             {selectedSkill ? (
-              <SkillAnalysis
-                skill={selectedSkill}
-                streak={"4"}
-                hours={"100"}
-                category={"Programming"}
-                level={"4"}
-              />
+              <SkillAnalysis skill={selectedSkill} userId={userId} />
             ) : null}
           </div>
         </div>

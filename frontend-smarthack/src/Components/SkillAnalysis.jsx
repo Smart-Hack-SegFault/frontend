@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SkillAnalysis.css";
 import Button from "./Button";
 
@@ -28,7 +28,8 @@ const NumberInput = () => {
   );
 };
 
-const SkillAnalysis = ({ skill, streak, hours, category, level }) => {
+const SkillAnalysis = ({ skill, userId }) => {
+  const level = 4;
   const skills = [
     "Python",
     "C++",
@@ -93,6 +94,28 @@ const SkillAnalysis = ({ skill, streak, hours, category, level }) => {
       </div>
     );
   }
+  const [streak, setStreak] = useState(undefined);
+  const [hours, setHours] = useState(undefined);
+  useEffect(() => {
+    async function fetchStreak(userId) {
+      const response = await fetch(
+        `http://127.0.0.1:8000/user/${userId}/skill/${skill.tag}/streak`
+      );
+      const streak = await response.json();
+      return streak;
+    }
+    async function fetchHours(userId) {
+      const response = await fetch(
+        `http://127.0.0.1:8000/user/${userId}/skill/${skill.tag}/hours`
+      );
+      const fetchedHours = await response.json();
+      return fetchedHours;
+    }
+
+    fetchStreak(userId).then((streak) => setStreak(streak));
+    fetchHours(userId).then((fetchedHours) => setHours(fetchedHours));
+  }, [skill]);
+  if (streak === undefined || hours === undefined) return;
   return (
     <div className="sa-content-wrapper">
       <h1 className="sa-title">Analysis and Recommendations</h1>
@@ -103,7 +126,7 @@ const SkillAnalysis = ({ skill, streak, hours, category, level }) => {
         <NumberInput /> <Button text={"Submit"} style={"green2"} />
       </h1>
       <h1 className="sa-label">Total Hours: {hours}</h1>
-      <h1 className="sa-label">Category: {category}</h1>
+      <h1 className="sa-label">Category: {skill.category}</h1>
       <h1 className="sa-label">Level: {level}</h1>
     </div>
   );
