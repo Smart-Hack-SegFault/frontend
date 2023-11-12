@@ -34,6 +34,7 @@ const OrganizationStatistics = () => {
           .eq('organization', organizationId)
         setRoles(Roles)
         setSelectedRole(Roles[0])
+        setSelectedRole(Roles[0])
       } catch (error) {
         console.log(error)
       }
@@ -42,13 +43,16 @@ const OrganizationStatistics = () => {
     fetchEmployees()
     fetchRoles()
   }, [])
+  }, [])
 
+  if (!roles) return
   if (!roles) return
 
   const navLinks = [
     { text: 'Home', link: '/organization' },
     { text: 'Statistics', link: `/organization/statistics/${organizationId}` },
   ]
+  console.log(selectedRole.id)
   console.log(selectedRole.id)
   return (
     <Wrapper className='page'>
@@ -70,8 +74,21 @@ const OrganizationStatistics = () => {
             setSelectedRole({ name: e.target.value, id: x, organization: org })
             console.log(e.target.value, selectedRole)
           }}
+          onChange={(e) => {
+            let x, org
+            for (const { name, id, organization } of roles) {
+              if (name === e.target.value) {
+                x = id
+                org = organization
+              }
+            }
+            setSelectedRole({ name: e.target.value, id: x, organization: org })
+          }}
         >
           {roles.map((role) => (
+            <option key={role.id} value={role.name}>
+              {role.name}
+            </option>
             <option key={role.id} value={role.name}>
               {role.name}
             </option>
@@ -86,6 +103,7 @@ const OrganizationStatistics = () => {
             </div>
 
             <div className='roles-chart'>
+              <RolesChart roleId={selectedRole.id}></RolesChart>
               <RolesChart roleId={selectedRole.id}></RolesChart>
             </div>
           </section>

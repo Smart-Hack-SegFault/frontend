@@ -27,7 +27,7 @@ const EmployeesBarChart = ({ employees }) => {
       },
       title: {
         display: true,
-        text: 'Chart.js Horizontal Bar Chart',
+        text: 'Employees Statistics',
       },
     },
   }
