@@ -11,7 +11,7 @@ import { useAppContext } from "../context/appContext";
 const Skills = () => {
   const { userId } = useParams();
   const navLinks = [
-    { text: "Home", link: `/home/${userId}` },
+    { text: "Home", link: `/user/${userId}` },
     { text: "Statistics", link: `/statistics/${userId}` },
     { text: "Skills", link: `/skills/${userId}` },
     { text: "Profile", link: `/profile/${userId}` },

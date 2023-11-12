@@ -32,6 +32,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
+  font-family: var(--font);
   /* overflow: hidden; */
 }
 button {
@@ -48,13 +49,8 @@ button {
   justify-content: center;
   padding: 3rem;
 }
-body {
-}
 
 .page {
   margin-top: var(--navbar-height);
-}
-
-.section {
 }
 
