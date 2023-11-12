@@ -37,7 +37,10 @@ body {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
 button {
   font-family: 'Roboto', sans-serif;
 }
@@ -45,7 +48,10 @@ button {
 .page {
   margin-top: var(--navbar-height);
 }
+<<<<<<< HEAD
 >>>>>>> 555b5af (Best my father if i dont hate react)
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
 
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
@@ -54,6 +60,7 @@ button {
   justify-content: center;
   padding: 3rem;
 }
+<<<<<<< HEAD
 =======
 body {
 }
@@ -65,3 +72,5 @@ body {
 .section {
 }
 >>>>>>> e448ebd (statistics page structure, charts, global context added)
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b

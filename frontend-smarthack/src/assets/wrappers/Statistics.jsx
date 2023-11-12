@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Wrapper = styled.div``
 =======
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
 const Wrapper = styled.div`
   padding: 8%;
   display: grid;
@@ -50,6 +53,9 @@ const Wrapper = styled.div`
     margin-left: 50%;
   }
 `
+<<<<<<< HEAD
 >>>>>>> 555b5af (Best my father if i dont hate react)
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
 
 export default Wrapper
