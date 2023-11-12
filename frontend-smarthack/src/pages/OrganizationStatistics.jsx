@@ -9,8 +9,23 @@ import RolesChart from '../Components/RolesChart'
 const OrganizationStatistics = () => {
   const [employees, setEmployees] = useState([])
   const [roles, setRoles] = useState([])
-  const [selectedRole, setSelectedRole] = useState('')
+  const [selectedRole, setSelectedRole] = useState({})
+  const [stats, setStats] = useState([])
+
   const { organizationId } = useParams()
+
+  const fetchStats = async () => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/org/${organizationId}/${selectedRole.id}/stats`
+      )
+
+      const data = await response.json()
+      setStats(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -41,6 +56,8 @@ const OrganizationStatistics = () => {
 
     fetchEmployees()
     fetchRoles()
+
+    if (selectedRole.id) fetchStats()
   }, [])
 
   if (!roles) return
@@ -49,7 +66,9 @@ const OrganizationStatistics = () => {
     { text: 'Home', link: '/organization' },
     { text: 'Statistics', link: `/organization/statistics/${organizationId}` },
   ]
-  console.log(selectedRole.id)
+
+  console.log(stats)
+
   return (
     <Wrapper className='page'>
       <Navbar links={navLinks} />
@@ -82,8 +101,9 @@ const OrganizationStatistics = () => {
         {selectedRole && (
           <section className='role-stats'>
             <div className='average-stats'>
-              <h1>Median work hours: </h1>
-              <h1>Average work hours: </h1>
+              <h1>Median work hours: {stats.median} </h1>
+              <h1>Average work hours: {stats.mean} </h1>
+              <h1>Standard deviation: {stats.std} </h1>
             </div>
 
             <div className='roles-chart'>
