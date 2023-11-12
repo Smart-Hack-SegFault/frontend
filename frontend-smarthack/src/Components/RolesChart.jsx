@@ -12,37 +12,51 @@ import { Bar } from 'react-chartjs-2'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-const RolesChart = ({ roleId }) => {
+const RolesChart = ({ organizationId, roleId }) => {
   console.log(roleId)
   const [skillLevel, setSkillLevel] = useState([])
+  const [stats, setStats] = useState([])
 
   useEffect(() => {
     const fetchSkillLevel = async () => {
       try {
-        const response = await fetch(
+        const response = fetch(
           `http://127.0.0.1:8000/role/${roleId}/top_employees`
+        )
+          .then((res) => res.json())
+          .then((data) => setSkillLevel(data))
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    const fetchStats = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/org/${organizationId}/${roleId}/stats`
         )
 
         const data = await response.json()
-        setSkillLevel(data)
+        setStats(data)
       } catch (error) {
         console.log(error)
       }
     }
 
     fetchSkillLevel()
-  }, [])
+    fetchStats()
+  }, [roleId])
 
   const chooseColor = (skillLevels) => {
     return skillLevels.map((person) => {
       if (person.points >= 5000) {
-        return 'rgb(236, 8, 8)'
+        return 'rgba(167,0,0, 0.7)'
       } else if (person.points >= 3000) {
-        return 'rgb(192, 201, 67))'
+        return 'rgba(255,0,0, 0.7)'
       } else if (person.points >= 1000) {
-        return 'rgb(174, 91, 61)'
-      } else if (person.points >= 250) return 'rgb(87, 51, 51)'
-      else return 'rgb(57, 41, 36)'
+        return 'rgba(255,82,82, 0.7)'
+      } else if (person.points >= 250) return 'rgba(255,123,123, 0.7)'
+      else return 'rgba(255,186,186, 0.7)'
     })
   }
 
@@ -80,6 +94,12 @@ const RolesChart = ({ roleId }) => {
 
   return (
     <section>
+      <div className='average-stats'>
+        <h1>Median work hours: {stats.mean} </h1>
+        <h1>Average work hours: {stats.median}</h1>
+        <h1>Standard deviation: {stats.std}</h1>
+      </div>
+
       <Bar options={options} data={data}></Bar>
     </section>
   )

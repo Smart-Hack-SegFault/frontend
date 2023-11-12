@@ -35,6 +35,7 @@ body {
   font-family: var(--font);
   /* overflow: hidden; */
 }
+
 button {
   font-family: 'Roboto', sans-serif;
 }
@@ -42,6 +43,7 @@ button {
 .page {
   margin-top: var(--navbar-height);
 }
+
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
   margin-top: var(--navbar-height);
@@ -52,4 +54,7 @@ button {
 
 .page {
   margin-top: var(--navbar-height);
+}
+
+.section {
 }

@@ -17,8 +17,6 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const SkillsBarChart = ({ typeName, typeValue }) => {
   const { skills } = useAppContext()
 
-  console.log(skills)
-
   const options = {
     indexAxis: 'y',
     elements: {
