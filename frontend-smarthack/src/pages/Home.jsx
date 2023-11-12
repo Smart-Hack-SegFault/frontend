@@ -38,10 +38,10 @@ const Home = () => {
   }, [])
 
   const navLinks = [
-    { text: 'Home', link: '' },
-    { text: 'Statistics', link: `statistics/${userId}` },
-    { text: 'Tasks', link: 'tasks' },
-    { text: 'Profile', link: 'profile' },
+    { text: 'Home', link: '/user' },
+    { text: 'Statistics', link: `/user/statistics/${userId}` },
+    { text: 'Tasks', link: '/user/tasks' },
+    { text: 'Profile', link: '/user/profile' },
   ]
 
   return (

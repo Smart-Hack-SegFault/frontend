@@ -68,6 +68,7 @@ const OrganizationStatistics = () => {
               }
             }
             setSelectedRole({ name: e.target.value, id: x, organization: org })
+            console.log(e.target.value, selectedRole)
           }}
         >
           {roles.map((role) => (

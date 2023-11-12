@@ -24,13 +24,13 @@ const Register = () => {
 
     console.log('register')
 
-    const { email, password, name } = state
-    if (!email || !password || (!name && !isMember)) {
+    const { email, password, name, type } = state
+    if (!email || !password || (!type && !name && !isMember)) {
       console.log('error')
       return
     }
 
-    const user = { email, password, name }
+    const user = { email, password, name, type }
 
     // if user is not a member, register, else login
     // if (!isMember) register(user)
@@ -88,6 +88,13 @@ const Register = () => {
             labelText='password'
             type='password'
           />
+
+          {!isMember && (
+            <select>
+              <option>Organization</option>
+              <option>User</option>
+            </select>
+          )}
 
           <div className='btn-container'>
             <Button

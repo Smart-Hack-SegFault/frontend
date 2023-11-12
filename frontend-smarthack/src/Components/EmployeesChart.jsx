@@ -9,14 +9,10 @@ import {
   Legend,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import { useAppContext } from '../context/appContext'
-import Wrapper from '../assets/wrappers/SkillsBarChart'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-const SkillsBarChart = ({ typeName, typeValue }) => {
-  const { skills } = useAppContext()
-
+const EmployeesBarChart = ({ employees }) => {
   const options = {
     indexAxis: 'y',
     elements: {
@@ -36,31 +32,22 @@ const SkillsBarChart = ({ typeName, typeValue }) => {
     },
   }
 
-  const labels = skills
-    .filter((skill) => skill.Tags.Categories.type == typeValue)
-    .reduce((acc, currentSkill) => {
-      const tagName = currentSkill.Tags.name
-
-      acc.push(tagName)
-      return acc
-    }, [])
-
   const data = {
-    labels,
+    labels: employees.map((employee) => employee.name),
     datasets: [
       {
-        label: typeName,
-        data: skills.map((skill) => skill.init_hours),
+        label: 'hours worked',
+        data: employees.map((employee) => employee.org_hours),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   }
 
   return (
-    <Wrapper>
+    <section>
       <Bar options={options} data={data}></Bar>
-    </Wrapper>
+    </section>
   )
 }
 
-export default SkillsBarChart
+export default EmployeesBarChart
