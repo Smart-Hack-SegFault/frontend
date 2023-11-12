@@ -8,20 +8,6 @@ import RoundChart from "../Components/RoundChart";
 import HeatMap from "@uiw/react-heat-map";
 import Wrapper from "../assets/wrappers/Statistics";
 
-const value = [
-  { date: "2016/01/11", count: 2 },
-  { date: "2016/01/12", count: 20 },
-  { date: "2016/01/13", count: 10 },
-  ...[...Array(17)].map((_, idx) => ({
-    date: `2016/02/${idx + 10}`,
-    count: idx,
-    content: "",
-  })),
-  { date: "2016/04/11", count: 2 },
-  { date: "2016/05/01", count: 5 },
-  { date: "2016/05/02", count: 5 },
-  { date: "2016/05/04", count: 11 },
-];
 import { supabase } from "../utils/supabaseConfig";
 
 const Statistics = () => {
@@ -88,7 +74,7 @@ const Statistics = () => {
         <HeatMap
           value={value}
           weekLabels={["", "Mon", "", "Wed", "", "Fri", ""]}
-          startDate={new Date("2016/01/01")}
+          startDate={new Date("2023/01/01")}
           panelColors={{
             0: "#b6fdd9cc",
             1: "#e77903",

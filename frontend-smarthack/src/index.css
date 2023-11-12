@@ -51,8 +51,6 @@ button {
   justify-content: center;
   padding: 3rem;
 }
-body {
-}
 
 .page {
   margin-top: var(--navbar-height);
