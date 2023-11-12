@@ -2,26 +2,18 @@ import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import Wrapper from '../assets/wrappers/RoundChart'
-import { useAppContext } from '../context/appContext'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
-const RoundChart = () => {
-  const { skills } = useAppContext()
-
-  const labels = skills.reduce((acc, currentSkill) => {
-    const tagName = currentSkill.Tags.name
-
-    acc.push(tagName)
-    return acc
-  }, [])
+const RoundChart = ({ categoriesData }) => {
+  if (!categoriesData) return
 
   const data = {
-    labels,
+    labels: categoriesData.skills.map((skill) => skill[0]),
     datasets: [
       {
-        label: 'points',
-        data: skills.map((skill) => skill.points),
+        label: 'hours',
+        data: categoriesData.skills.map((skill) => skill[1]),
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -45,6 +37,7 @@ const RoundChart = () => {
 
   return (
     <Wrapper>
+      <h1>{categoriesData.name}</h1>
       <Pie data={data}></Pie>
     </Wrapper>
   )

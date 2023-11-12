@@ -2,6 +2,8 @@ import Landing from './pages/Landing.jsx'
 import Register from './pages/Register.jsx'
 import Home from './pages/Home.jsx'
 import Statistics from './pages/Statistics.jsx'
+import Organization from './pages/Organization.jsx'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context/appContext.jsx'
 
@@ -15,8 +17,8 @@ const App = () => {
           <Route path='/:userId' element={<Home />}></Route>
           <Route path='/statistics/:userId' element={<Statistics />}></Route>
           <Route
-            path='/statistics/:userId/:label'
-            element={<h1>da</h1>}
+            path='/organization/:organizationId'
+            element={<Organization />}
           ></Route>
         </Routes>
       </BrowserRouter>
