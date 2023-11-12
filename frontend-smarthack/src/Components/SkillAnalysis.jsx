@@ -60,11 +60,12 @@ const SkillAnalysis = ({ skill, userId, type }) => {
   const [rangeNumber, setRangeNumber] = useState(0);
   const [generatedRec, setGeneratedRec] = useState("");
   async function submitToDB(data) {
+    if (!data?.hours) return;
     let date = new Date();
     date =
       date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     if (!data) return;
-    const { d, err } = await supabase
+    const { d } = await supabase
       .from("DailyWork")
       .insert([{ hours: Number(data.hours), date: date, user_skill: data.id }])
       .select();
