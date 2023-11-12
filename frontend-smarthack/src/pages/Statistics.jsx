@@ -24,6 +24,11 @@ const value = [
 ]
 
 const Statistics = () => {
+  const [value, setValue] = useState([])
+  const [categories, setCategories] = useState([])
+
+  const { userId } = useParams()
+
   const navLinks = [
     { text: 'Home', link: '' },
     { text: 'Statistics', link: 'statistics' },
@@ -31,14 +36,49 @@ const Statistics = () => {
     { text: 'Profile', link: 'profile' },
   ]
 
-  const { userId } = useParams()
   const { getCurrentUser, getSkills, skills, user } = useAppContext()
 
   useEffect(() => {
     getCurrentUser(userId)
     getSkills(userId)
+<<<<<<< HEAD
   }, [])
 
+=======
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/user/${userId}/daily-activity`
+        )
+
+        const data = await response.json()
+        setValue(data)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/user/${userId}/top-categories`
+        )
+
+        const data = await response.json()
+        setCategories(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData()
+    fetchCategories()
+  }, [])
+
+  console.log(categories)
+
+>>>>>>> 545dba3 (nothing special)
   return (
     <Wrapper className='page'>
       <Navbar links={navLinks} />
@@ -57,6 +97,19 @@ const Statistics = () => {
           style={{ color: '#ad001d', '--rhm-rect-active': 'red' }}
         />
       </div>
+<<<<<<< HEAD
+=======
+
+      <div className='r-charts-1 center'>
+        <RoundChart categoriesData={categories[0]} />
+      </div>
+      <div className='r-charts-2 center'>
+        <RoundChart categoriesData={categories[1]} />
+      </div>
+      <div className='r-charts-3 center'>
+        <RoundChart categoriesData={categories[2]} />
+      </div>
+>>>>>>> 545dba3 (nothing special)
     </Wrapper>
   )
 }
