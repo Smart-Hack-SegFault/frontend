@@ -5,6 +5,7 @@
 
 .skills-scroll-box {
     max-height: var(--skill-content-max-height);
+    min-height: var(--skill-content-max-height);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -29,7 +30,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 2rem;
     border: 2px solid var(--black);
     border-radius: 2rem;

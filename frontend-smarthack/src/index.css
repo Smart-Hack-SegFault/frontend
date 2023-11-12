@@ -19,6 +19,7 @@
 
   --black: #1c211f;
   --white: #fff;
+  --grey: #595959;
 
   --font: sans-serif;
 
@@ -31,10 +32,9 @@ body {
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font);
   /* overflow: hidden; */
 }
-
 button {
   font-family: 'Roboto', sans-serif;
 }
@@ -42,7 +42,6 @@ button {
 .page {
   margin-top: var(--navbar-height);
 }
-
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
   margin-top: var(--navbar-height);
@@ -50,12 +49,7 @@ button {
   justify-content: center;
   padding: 3rem;
 }
-body {
-}
 
 .page {
   margin-top: var(--navbar-height);
-}
-
-.section {
 }

@@ -2,16 +2,30 @@ import React from "react";
 import "./Skill.css";
 import Button from "./Button";
 
-const Skill = ({ skillName, setSelectedSkill }) => {
-  function handleOnClick(e) {
-    console.log(`${skillName} was clicked`);
-  }
+const Skill = ({ skill, setSelectedSkill, style }) => {
   return (
     <div className="skill-wrapper">
       <Button
-        text={skillName}
-        style={"green1 fill-container"}
-        handleSubmit={() => setSelectedSkill(skillName)}
+        text={skill.name}
+        style={`${style} fill-container`}
+        handleSubmit={() => {
+          console.log({
+            name: skill.name,
+            category: skill.category,
+            tag: skill.tag,
+            score: skill.score,
+            id: skill.id,
+            type: skill.type,
+          });
+          setSelectedSkill({
+            name: skill.name,
+            category: skill.category,
+            tag: skill.tag,
+            score: skill.score,
+            id: skill.id,
+            type: skill.type,
+          });
+        }}
       />
     </div>
   );
