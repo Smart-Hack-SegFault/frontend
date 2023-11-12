@@ -11,6 +11,9 @@ import { supabase } from '../utils/supabaseConfig'
 
 const Statistics = () => {
   const [value, setValue] = useState([])
+  const [categories, setCategories] = useState([])
+
+  const { userId } = useParams()
 
   const navLinks = [
     { text: 'Home', link: '' },
@@ -19,7 +22,6 @@ const Statistics = () => {
     { text: 'Profile', link: 'profile' },
   ]
 
-  const { userId } = useParams()
   const { getCurrentUser, getSkills, skills, user } = useAppContext()
 
   useEffect(() => {
@@ -39,10 +41,24 @@ const Statistics = () => {
       }
     }
 
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/user/${userId}/top-categories`
+        )
+
+        const data = await response.json()
+        setCategories(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
     fetchData()
+    fetchCategories()
   }, [])
 
-  console.log(value)
+  console.log(categories)
 
   return (
     <Wrapper className='page'>
@@ -67,13 +83,13 @@ const Statistics = () => {
       </div>
 
       <div className='r-charts-1 center'>
-        <RoundChart />
+        <RoundChart categoriesData={categories[0]} />
       </div>
       <div className='r-charts-2 center'>
-        <RoundChart />
+        <RoundChart categoriesData={categories[1]} />
       </div>
       <div className='r-charts-3 center'>
-        <RoundChart />
+        <RoundChart categoriesData={categories[2]} />
       </div>
     </Wrapper>
   )
