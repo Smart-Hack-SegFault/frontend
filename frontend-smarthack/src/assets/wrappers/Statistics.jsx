@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  padding: 8%;
   display: grid;
 
   grid-template-areas:
@@ -24,23 +25,26 @@ const Wrapper = styled.div`
   .head-map {
     grid-area: d;
   }
-
+  /* 
   .center {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
   .r-charts-1 {
     grid-area: c;
+    margin-left: 50%;
   }
 
   .r-charts-2 {
     grid-area: e;
+    margin-left: 50%;
   }
 
   .r-charts-3 {
     grid-area: h;
+    margin-left: 50%;
   }
 `
 

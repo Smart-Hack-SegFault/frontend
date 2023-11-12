@@ -4,6 +4,7 @@ import Navbar from '../Components/Navbar'
 import { useParams } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Home'
+import HomeChart from '../Components/HomeChart'
 
 const Home = () => {
   const { userId } = useParams()
@@ -28,8 +29,12 @@ const Home = () => {
 
         <section className='home-left'>
           <h1>
-            Great to see you again, <br></br> {user.name}
+            Great to see you again, <br></br>
+            <span>{user.name}</span>
           </h1>
+        </section>
+        <section className='home-right'>
+          <HomeChart />
         </section>
       </section>
     </Wrapper>

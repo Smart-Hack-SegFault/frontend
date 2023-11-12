@@ -31,18 +31,18 @@ const RolesChart = ({ roleId }) => {
     }
 
     fetchSkillLevel()
-  }, [roleId])
+  }, [])
 
   const chooseColor = (skillLevels) => {
     return skillLevels.map((person) => {
       if (person.points >= 5000) {
-        return 'rgb(238, 127, 220)' // Example color for high skill level
+        return 'rgb(236, 8, 8)'
       } else if (person.points >= 3000) {
-        return 'rgb(78, 168, 164)' // Example color for medium skill level
+        return 'rgb(192, 201, 67))'
       } else if (person.points >= 1000) {
-        return 'rgb(135, 45, 195)' // Example color for low skill level
-      } else if (person.points >= 250) return 'rgb(218, 102, 102)'
-      else return 'rgb(209, 140, 228)'
+        return 'rgb(174, 91, 61)'
+      } else if (person.points >= 250) return 'rgb(87, 51, 51)'
+      else return 'rgb(57, 41, 36)'
     })
   }
 
@@ -60,7 +60,7 @@ const RolesChart = ({ roleId }) => {
       },
       title: {
         display: true,
-        text: 'Chart.js Horizontal Bar Chart',
+        text: 'Roles Chart',
       },
     },
   }

@@ -22,7 +22,15 @@ const Wrapper = styled.section`
   } */
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 7.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    color: gray;
   }
 
   /* .logo {

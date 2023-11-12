@@ -32,8 +32,8 @@ const OrganizationStatistics = () => {
           .from('Roles')
           .select('*')
           .eq('organization', organizationId)
-
         setRoles(Roles)
+        setSelectedRole(Roles[0])
       } catch (error) {
         console.log(error)
       }
@@ -41,15 +41,15 @@ const OrganizationStatistics = () => {
 
     fetchEmployees()
     fetchRoles()
-  }, [selectedRole])
+  }, [])
 
-  console.log(roles)
+  if (!roles) return
 
   const navLinks = [
     { text: 'Home', link: '/organization' },
     { text: 'Statistics', link: `/organization/statistics/${organizationId}` },
   ]
-
+  console.log(selectedRole.id)
   return (
     <Wrapper className='page'>
       <Navbar links={navLinks} />
@@ -59,11 +59,21 @@ const OrganizationStatistics = () => {
       <section className='roles'>
         <h1>Select Role:</h1>
         <select
-          value={selectedRole}
-          onChange={(e) => setSelectedRole(e.target.value)}
+          onChange={(e) => {
+            let x, org
+            for (const { name, id, organization } of roles) {
+              if (name === e.target.value) {
+                x = id
+                org = organization
+              }
+            }
+            setSelectedRole({ name: e.target.value, id: x, organization: org })
+          }}
         >
           {roles.map((role) => (
-            <option key={role.id}>{role.name}</option>
+            <option key={role.id} value={role.name}>
+              {role.name}
+            </option>
           ))}
         </select>
 
@@ -75,9 +85,7 @@ const OrganizationStatistics = () => {
             </div>
 
             <div className='roles-chart'>
-              <RolesChart
-                roleId={roles.find((elem) => elem.name === selectedRole).id}
-              ></RolesChart>
+              <RolesChart roleId={selectedRole.id}></RolesChart>
             </div>
           </section>
         )}

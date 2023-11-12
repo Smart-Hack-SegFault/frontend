@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 *,
 ::after,
 ::before {
@@ -25,11 +28,15 @@
 
 html,
 body {
-  font-family: var(--font);
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
+  font-family: 'Roboto', sans-serif;
   /* overflow: hidden; */
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
 }
 
 .page {
