@@ -12,9 +12,8 @@ const Skills = () => {
   const { userId } = useParams();
   const navLinks = [
     { text: "Home", link: `/user/${userId}` },
-    { text: "Statistics", link: `/statistics/${userId}` },
-    { text: "Skills", link: `/skills/${userId}` },
-    { text: "Profile", link: `/profile/${userId}` },
+    { text: "Statistics", link: `/user/statistics/${userId}` },
+    { text: "Skills", link: `/user/skills/${userId}` },
   ];
   const softSkills = [],
     hardSkills = [];

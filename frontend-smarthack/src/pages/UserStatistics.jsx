@@ -17,10 +17,9 @@ const Statistics = () => {
   const { userId } = useParams();
 
   const navLinks = [
-    { text: "Home", link: "" },
-    { text: "Statistics", link: "statistics" },
-    { text: "Tasks", link: "tasks" },
-    { text: "Profile", link: "profile" },
+    { text: "Home", link: `/user/${userId}` },
+    { text: "Statistics", link: `/user/statistics/${userId}` },
+    { text: "Skills", link: `/user/skills/${userId}` },
   ];
 
   const { getCurrentUser, getSkills, skills, user } = useAppContext();

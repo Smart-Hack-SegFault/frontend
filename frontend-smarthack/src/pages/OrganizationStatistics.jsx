@@ -46,7 +46,7 @@ const OrganizationStatistics = () => {
   if (!roles) return;
   console.log(selectedRole);
   const navLinks = [
-    { text: "Home", link: "/organization" },
+    { text: "Home", link: `/organization/${organizationId}` },
     { text: "Statistics", link: `/organization/statistics/${organizationId}` },
   ];
   return (

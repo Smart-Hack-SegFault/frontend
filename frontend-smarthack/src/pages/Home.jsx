@@ -16,10 +16,9 @@ const Home = () => {
   }, []);
 
   const navLinks = [
-    { text: "Home", link: "/user" },
+    { text: "Home", link: `/user/${userId}` },
     { text: "Statistics", link: `/user/statistics/${userId}` },
-    { text: "Tasks", link: "/user/tasks" },
-    { text: "Profile", link: "/user/profile" },
+    { text: "Skills", link: `/user/skills/${userId}` },
   ];
 
   return (
@@ -28,11 +27,11 @@ const Home = () => {
         <Navbar links={navLinks} />
         <section className="home-left">
           <h1>
-            Great to see you again, <br></br> {user.name}
+            Great to see you again, <br></br> <span>{user.name}</span>
           </h1>
         </section>
         <section className="home-right">
-          <RoundChart />
+          <HomeChart />
         </section>
       </section>
     </Wrapper>
