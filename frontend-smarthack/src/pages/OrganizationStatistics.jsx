@@ -70,11 +70,13 @@ const OrganizationStatistics = () => {
             setSelectedRole({ name: e.target.value, id: x, organization: org })
           }}
         >
-          {roles.map((role) => (
-            <option key={role.id} value={role.name}>
-              {role.name}
-            </option>
-          ))}
+          {roles.map((role) => {
+            return (
+              <option key={role.id} value={role.name}>
+                {role.name}
+              </option>
+            )
+          })}
         </select>
 
         {selectedRole && (

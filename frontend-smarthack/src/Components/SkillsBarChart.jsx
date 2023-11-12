@@ -24,8 +24,6 @@ ChartJS.register(
 const SkillsBarChart = ({ typeName, typeValue }) => {
   const { skills } = useAppContext();
 
-  console.log(skills);
-
   const options = {
     indexAxis: "y",
     elements: {

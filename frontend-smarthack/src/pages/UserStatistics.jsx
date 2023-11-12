@@ -22,6 +22,7 @@ const value = [
   { date: "2016/05/02", count: 5 },
   { date: "2016/05/04", count: 11 },
 ];
+import { supabase } from "../utils/supabaseConfig";
 
 const Statistics = () => {
   const [value, setValue] = useState([]);
@@ -41,8 +42,7 @@ const Statistics = () => {
   useEffect(() => {
     getCurrentUser(userId);
     getSkills(userId);
-  }, []);
-  useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -73,6 +73,8 @@ const Statistics = () => {
     fetchCategories();
   }, []);
 
+  console.log(categories);
+
   return (
     <Wrapper className="page">
       <Navbar links={navLinks} />
@@ -82,21 +84,20 @@ const Statistics = () => {
       <div className="charts-2">
         <SkillsBarChart typeName="soft skills" typeValue="0" />
       </div>
-      <div>
-        <div className="heat-map">
-          <HeatMap
-            value={value}
-            weekLabels={["", "Mon", "", "Wed", "", "Fri", ""]}
-            startDate={new Date("2016/01/01")}
-            panelColors={{
-              0: "#b6fdd9cc",
-              1: "#e77903",
-            }}
-            width={800}
-            style={{ color: "#ad001d", "--rhm-rect-active": "red" }}
-          />
-        </div>
+      <div className="heat-map">
+        <HeatMap
+          value={value}
+          weekLabels={["", "Mon", "", "Wed", "", "Fri", ""]}
+          startDate={new Date("2016/01/01")}
+          panelColors={{
+            0: "#b6fdd9cc",
+            1: "#e77903",
+          }}
+          width={800}
+          style={{ color: "#ad001d", "--rhm-rect-active": "red" }}
+        />
       </div>
+
       <div className="r-charts-1 center">
         <RoundChart categoriesData={categories[0]} />
       </div>
