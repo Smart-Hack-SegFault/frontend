@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,25 +7,18 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
-import { useAppContext } from "../context/appContext";
-import Wrapper from "../assets/wrappers/SkillsBarChart";
+} from 'chart.js'
+import { Bar } from 'react-chartjs-2'
+import { useAppContext } from '../context/appContext'
+import Wrapper from '../assets/wrappers/SkillsBarChart'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const SkillsBarChart = ({ typeName, typeValue }) => {
-  const { skills } = useAppContext();
+  const { skills } = useAppContext()
 
   const options = {
-    indexAxis: "y",
+    indexAxis: 'y',
     elements: {
       bar: {
         borderWidth: 2,
@@ -34,23 +27,23 @@ const SkillsBarChart = ({ typeName, typeValue }) => {
     responsive: true,
     plugins: {
       legend: {
-        position: "right",
+        position: 'right',
       },
       title: {
         display: true,
-        text: "Skills Chart",
+        text: 'Skills Chart',
       },
     },
-  };
+  }
 
   const labels = skills
     .filter((skill) => skill.Tags.Categories.type == typeValue)
     .reduce((acc, currentSkill) => {
-      const tagName = currentSkill.Tags.name;
+      const tagName = currentSkill.Tags.name
 
-      acc.push(tagName);
-      return acc;
-    }, []);
+      acc.push(tagName)
+      return acc
+    }, [])
 
   const data = {
     labels,
@@ -58,16 +51,16 @@ const SkillsBarChart = ({ typeName, typeValue }) => {
       {
         label: typeName,
         data: skills.map((skill) => skill.init_hours),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
-  };
+  }
 
   return (
     <Wrapper>
       <Bar options={options} data={data}></Bar>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default SkillsBarChart;
+export default SkillsBarChart

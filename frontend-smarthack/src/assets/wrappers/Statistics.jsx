@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding: 8%;
   display: grid;
 
   grid-template-areas:
-    "a b c"
-    "d d e"
-    "f g h";
+    'a b c'
+    'd d e'
+    'f g h';
 
   height: auto;
 
@@ -46,6 +46,6 @@ const Wrapper = styled.div`
     grid-area: h;
     margin-left: 50%;
   }
-`;
+`
 
-export default Wrapper;
+export default Wrapper

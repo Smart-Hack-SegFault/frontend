@@ -10,6 +10,7 @@ const OrganizationStatistics = () => {
   const [employees, setEmployees] = useState([]);
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState("");
+
   const { organizationId } = useParams();
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const OrganizationStatistics = () => {
   }, []);
 
   if (!roles) return;
-  console.log(selectedRole);
+
   const navLinks = [
     { text: "Home", link: `/organization/${organizationId}` },
     { text: "Statistics", link: `/organization/statistics/${organizationId}` },
@@ -86,13 +87,11 @@ const OrganizationStatistics = () => {
 
         {selectedRole && (
           <section className="role-stats">
-            <div className="average-stats">
-              <h1>Median work hours: </h1>
-              <h1>Average work hours: </h1>
-            </div>
-
             <div className="roles-chart">
-              <RolesChart roleId={selectedRole.id}></RolesChart>
+              <RolesChart
+                organizationId={organizationId}
+                roleId={selectedRole.id}
+              ></RolesChart>
             </div>
           </section>
         )}
