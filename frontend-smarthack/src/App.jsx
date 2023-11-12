@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import UserStatistics from "./pages/UserStatistics.jsx";
 import Organization from "./pages/Organization.jsx";
 import OrganizationStatistics from "./pages/OrganizationStatistics.jsx";
+import Skills from "./pages/Skills.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context/appContext.jsx";
@@ -21,6 +22,7 @@ const App = () => {
             path="/user/statistics/:userId"
             element={<UserStatistics />}
           ></Route>
+          <Route path="/user/skills/:userId" element={<Skills />}></Route>
 
           <Route
             path="/organization/:organizationId"

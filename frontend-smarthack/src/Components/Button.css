@@ -8,7 +8,8 @@
   font-size: 1rem;
   text-decoration: none;
   transition: all 200ms;
-  font-family: var(--font);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   user-select: none;
 }
 
@@ -101,16 +102,4 @@
   font-size: 1.2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-}
-
-.allign-center {
-  align-self: center;
-}
-
-.fill-width {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
 }

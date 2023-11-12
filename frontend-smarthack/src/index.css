@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 *,
 ::after,
 ::before {
@@ -26,17 +29,18 @@
 
 html,
 body {
-  font-family: var(--font);
   margin: 0;
   padding: 0;
   min-height: calc(100vh - var(--navbar-height));
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+button {
+  font-family: 'Roboto', sans-serif;
 }
 
 .page {
   margin-top: var(--navbar-height);
 }
-
 .section {
   /* min-height: calc(100vh - var(--navbar-height)); */
   margin-top: var(--navbar-height);
@@ -44,3 +48,13 @@ body {
   justify-content: center;
   padding: 3rem;
 }
+body {
+}
+
+.page {
+  margin-top: var(--navbar-height);
+}
+
+.section {
+}
+

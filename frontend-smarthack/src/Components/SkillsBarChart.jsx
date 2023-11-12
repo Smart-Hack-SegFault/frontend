@@ -17,6 +17,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const SkillsBarChart = ({ typeName, typeValue }) => {
   const { skills } = useAppContext()
 
+<<<<<<< HEAD
+  console.log(skills)
+
+=======
+>>>>>>> e0ec19c87aaa321226516f5aca97f1e9967d2b3b
   const options = {
     indexAxis: 'y',
     elements: {
@@ -31,7 +36,7 @@ const SkillsBarChart = ({ typeName, typeValue }) => {
       },
       title: {
         display: true,
-        text: 'Chart.js Horizontal Bar Chart',
+        text: 'Skills Chart',
       },
     },
   }
